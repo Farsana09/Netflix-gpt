@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import type { RootState } from "../../utils/appStore";
-import useMovieTrailer from "../../hooks/useMovieTrailer";
+import type { RootState } from "../../../utils/appStore";
+import useMovieTrailer from "../../../hooks/useMovieTrailer";
 
 type videoProps = {
   movieId: string;
