@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import Header from "./Header";
 import { checkValidateData } from "../utils/validate";
+import { USER_AVATAR } from "../utils/constatns";
 import { auth } from "../utils/firebase";
 import {
   createUserWithEmailAndPassword,
@@ -50,8 +51,7 @@ const Login = () => {
             //update profile all thesse signup/signIn/update profile apis code block are form firebase
             updateProfile(user, {
               displayName: name.current?.value ?? "",
-              photoURL:
-                "https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg",
+              photoURL: USER_AVATAR,
             })
               .then(() => {
                 //here we are again calling add user bcs when we call it body authstatechange

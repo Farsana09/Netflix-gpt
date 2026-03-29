@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import Browse from "./components/Browse";
+import Browse from "./components/browse/Browse";
 import Login from "./components/Login";
 import appStore from "./utils/appStore";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";

@@ -11,7 +11,7 @@ const Body = () => {
   //we want to setup this event listner for once thats why we use useEffect
   useEffect(() => {
     //this fcn can listen all the auth changes eg- user signin, sign up, signOut
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         //User is Signed In/ Sign up
         const { uid, email, displayName, photoURL } = user;
@@ -34,7 +34,11 @@ const Body = () => {
         navigate("/");
       }
     });
-  }, []);
+    // unsubscribe is a fcn firebase gives u to stop to the continous listening when component get unattached
+    //onAuthSTateChange works like a event listener
+    //it suscribe again when the user effect runs again
+    return () => unsubscribe();
+  }, [dispatch, navigate]);
   return <Outlet />;
 };
 
