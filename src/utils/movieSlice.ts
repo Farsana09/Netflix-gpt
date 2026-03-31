@@ -18,12 +18,14 @@ type VideoTease = {
 // ✅ Define state type properly
 type MoviesState = {
   nowPlayingMovies: null; // you said ignore this for now
+  popularMovies: null;
   trailorVideo: VideoTease | null;
 };
 
 // ✅ Apply the type here
 const initialState: MoviesState = {
   nowPlayingMovies: null,
+  popularMovies: null,
   trailorVideo: null,
 };
 
@@ -34,6 +36,9 @@ const movieSlice = createSlice({
     addNowPlayingMoviies: (state, action) => {
       state.nowPlayingMovies = action.payload;
     },
+    addPopularMovies: (state, action) => {
+      state.popularMovies = action.payload;
+    },
 
     addTrailorVideo: (state, action: PayloadAction<VideoTease>) => {
       state.trailorVideo = action.payload;
@@ -41,5 +46,6 @@ const movieSlice = createSlice({
   },
 });
 
-export const { addNowPlayingMoviies, addTrailorVideo } = movieSlice.actions;
+export const { addNowPlayingMoviies, addTrailorVideo, addPopularMovies } =
+  movieSlice.actions;
 export default movieSlice.reducer;

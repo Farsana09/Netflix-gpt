@@ -1,6 +1,10 @@
 import MovieList from "./MovieList";
 import type { RootState } from "../../../utils/appStore";
 import { useSelector } from "react-redux";
+import {
+  useGetTopRatedMoviesQuery,
+  useGetUpcomingMoviesQuery,
+} from "../../../utils/movieApi";
 
 {
   /* 
@@ -13,18 +17,22 @@ import { useSelector } from "react-redux";
   */
 }
 const MovieSecContainer = () => {
-  const movies = useSelector(
-    (store: RootState) => store.movies?.nowPlayingMovies,
-  );
+  const movies = useSelector((store: RootState) => store.movies);
+  const { data: topRatedMovies } = useGetTopRatedMoviesQuery();
+  const { data: upcomingMovies } = useGetUpcomingMoviesQuery();
 
   return (
     movies && (
       <div className=" bg-black">
-        <div className="-mt-55 relative z-20 pl-8">
-          <MovieList title="Now Playing" movies={movies ?? []} />
-          <MovieList title="Trending" movies={movies ?? []} />
-          <MovieList title="Top Rated" movies={movies ?? []} />
-          <MovieList title="Horror" movies={movies ?? []} />
+        <div className="-mt-50 relative z-20 pl-8">
+          <MovieList
+            title="Now Playing"
+            movies={movies?.nowPlayingMovies ?? []}
+          />
+
+          <MovieList title="Top Rated" movies={topRatedMovies ?? []} />
+          <MovieList title="Upcoming" movies={upcomingMovies ?? []} />
+          <MovieList title="Popular" movies={movies?.popularMovies ?? []} />
         </div>
       </div>
     )

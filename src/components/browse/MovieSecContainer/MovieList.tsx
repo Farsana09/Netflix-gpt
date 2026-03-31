@@ -1,5 +1,4 @@
-import MovieCard from "./MovieCard";
-
+import MovieCard from "../movieSecContainer/MovieCard";
 type Movie = {
   adult: boolean;
   backdrop_path: string;

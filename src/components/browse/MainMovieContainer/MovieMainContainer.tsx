@@ -12,7 +12,7 @@ const MovieMainContainer = () => {
   //this is known as early return
   //if the movie is not present then return
   if (!movies) return;
-  const mainMovie = movies[4];
+  const mainMovie = movies[2];
   const { original_title, overview, id } = mainMovie;
   return (
     <div>

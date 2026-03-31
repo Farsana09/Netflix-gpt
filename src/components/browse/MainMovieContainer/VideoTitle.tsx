@@ -8,7 +8,7 @@ const VideoTitle = ({ title, overView }: videoTitleProps) => {
   return (
     //giving the w-full screen and aspect video actually making the same height as video thats why the same css giving here
 
-    <div className="w-screen aspect-video pt-[18%] px-16 absolute text-white bg-linear-to-r from-black">
+    <div className="w-screen aspect-video pt-[16%] px-16 absolute text-white bg-linear-to-r from-black">
       <h1 className="font-bold text-3xl">{title}</h1>
       <p className="py-6 w-1/4 text-lg">{overView}</p>
       <div className="">

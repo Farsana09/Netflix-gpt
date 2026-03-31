@@ -32,6 +32,17 @@
   - update store with trailor video data
   - embedded the youtube video
   - make it autoplay and mute
+- Build sec container
+  - Build Movie List and make it horizonatlly scrollable
+  - build movie card
+  - make the movie list margin up using -mt
+  - added no-scrollbar customised css in index.css
+  - added movie list popular ,now playing apis using customized hook
+  - added toRated, upcoming movies api using RTK query method
+- Building GPT search feature
+  - added gpt searchpage
+  - added gpt search bar
+  - added multi lang and lang dir
 
 # Features
 

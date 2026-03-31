@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BG_IMAGE_URL } from "../utils/constatns";
 const Login = () => {
   const dispatch = useDispatch();
   const [isSignInForm, setIsSignInForm] = useState<boolean>(true);
@@ -85,7 +86,6 @@ const Login = () => {
         });
     } else {
       //Sign in logic
-      console.log("user");
 
       signInWithEmailAndPassword(
         auth,
@@ -110,7 +110,7 @@ const Login = () => {
       <div>
         <img
           className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/d825497c-4678-4f25-90da-6637ec2cf892/web/IN-en-20260316-TRIFECTA-perspective_b65994ee-c5aa-4a5e-99ff-d137eebb94ef_small.jpg"
+          src={BG_IMAGE_URL}
           alt="Bg image"
         />
       </div>
