@@ -15,6 +15,7 @@ type VideoTease = {
   type: string;
 };
 
+
 // ✅ Define state type properly
 type MoviesState = {
   nowPlayingMovies: null; // you said ignore this for now

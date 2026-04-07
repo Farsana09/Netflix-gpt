@@ -43,6 +43,14 @@
   - added gpt searchpage
   - added gpt search bar
   - added multi lang and lang dir
+  - added open ai API Key
+  - gpt search api call
+  - fetched gpt movie suggestions from tmdb
+  - and we created gpt slice added data over there
+  - we reused movie list component to make movie suggestion container
+  - added .env file
+  - added .env file to gitignore
+  - made our app responsive for mobile tab web
 
 # Features
 

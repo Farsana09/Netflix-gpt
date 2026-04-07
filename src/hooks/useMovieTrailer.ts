@@ -27,7 +27,6 @@ const useMovieTrailer = (movieId: string) => {
     );
     const json = await data.json();
     const results = json.results as VideoTease[];
-    console.log(json);
 
     //
     //find the item that type is trailer
@@ -37,7 +36,6 @@ const useMovieTrailer = (movieId: string) => {
     //so we can access it anywhere
     if (trailer) {
       dispatch(addTrailorVideo(trailer));
-      console.log(json);
     }
   };
   useEffect(() => {

@@ -14,7 +14,6 @@ const useNowPlayingMovies = () => {
     const json = await data.json();
     //add the api response in redux store movieSlice
     dispatch(addNowPlayingMoviies(json.results));
-    console.log(json.results);
   };
   useEffect(() => {
     getNowPlayingMovies();

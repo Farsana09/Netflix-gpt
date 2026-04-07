@@ -25,10 +25,10 @@ const MovieList = ({ title, movies }: MovieListProps) => {
   return (
     // in this the 'no-scrollbar" is not a tailwind cls its a custom ui
     <div className="px-6 ">
-      <h1 className="text-2xl text-bold py-4 text-white">{title}</h1>
+      <h1 className="text-2xl text-bold py-4 text-white ">{title}</h1>
 
-      <div className=" flex overflow-x-scroll no-scrollbar px-0.5 ">
-        <div className="flex gap-6 ">
+      <div className="flex overflow-x-auto no-scrollbar px-0.5 ">
+        <div className="flex  gap-6 ">
           {movies.map((movie) => (
             <MovieCard key={movie.id} posterPath={movie?.poster_path} />
           ))}

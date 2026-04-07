@@ -14,7 +14,6 @@ const usePopularMovies = () => {
     const json = await data.json();
     //add the api response in redux store movieSlice
     dispatch(addPopularMovies(json.results));
-    console.log(json.results);
   };
   useEffect(() => {
     getPopularMovies();

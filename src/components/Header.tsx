@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../utils/appStore";
 import { LOGO_URL } from "../utils/constatns";
-import { toggleGptSearchView } from "../utils/gptSlice";
+import { removeGptMovieResults, toggleGptSearchView } from "../utils/gptSlice";
 import { useTranslation } from "react-i18next";
 import { languages } from "../utils/constatns";
 
@@ -23,6 +23,8 @@ const Header = () => {
   const handleGptOnclick = () => {
     //have tot store the gpt button toggle value
     //since we have a store and we have to access it from different component we can put the toggle value in the store
+    dispatch(removeGptMovieResults());
+
     dispatch(toggleGptSearchView());
   };
 
@@ -48,11 +50,11 @@ const Header = () => {
     i18n.changeLanguage(e.target.value);
   };
   return (
-    <div className="absolute w-screen px-8 py-2 bg-linear-to-b from-black to-transparent z-10 flex justify-between">
-      <img className="w-44 " src={LOGO_URL} alt="Logo" />
+    <div className="absolute w-screen px-8 py-2 bg-linear-to-b from-black to-transparent z-10 flex flex-col md:flex-row justify-between">
+      <img className="w-44 mx-auto md:mx-0 " src={LOGO_URL} alt="Logo" />
 
       {user && (
-        <div className="flex">
+        <div className="flex justify-between">
           {showGptSearch && (
             <select
               className="bg-gray-900 my-6 text-white p-2 rounded-lg"
@@ -73,7 +75,7 @@ const Header = () => {
             {showGptSearch ? t("homePage") : "GPT Search"}
           </button>
           <img
-            className="w-10 py-6"
+            className="w-10 py-6 hidden sm:block"
             alt="userIcon"
             src={user?.photoURL ?? ""}
           />

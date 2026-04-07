@@ -107,54 +107,56 @@ const Login = () => {
   return (
     <div className="h-screen">
       <Header />
-      <div>
+      <div className="fixed inset-0 -z-10">
         <img
-          className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+          className=" h-screen object-cover w-full -z-10"
           src={BG_IMAGE_URL}
           alt="Bg image"
         />
       </div>
-      <form
-        onSubmit={(e) => e.preventDefault()}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/80 w-3/12 p-10 text-white m-6   rounded-sm "
-      >
-        <h1 className="font-bold text-3xl py-4">
-          {isSignInForm ? "SIgn In" : "SIgn Up"}
-        </h1>
+      <div className="h-full flex items-center justify-center">
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="bg-black/80 w-[90%] sm:w-3/12 p-6 sm:p-10 text-white rounded-sm"
+        >
+          <h1 className="font-bold text-lg sm:text-3xl py-4">
+            {isSignInForm ? "SIgn In" : "SIgn Up"}
+          </h1>
 
-        {!isSignInForm && (
+          {!isSignInForm && (
+            <input
+              ref={name}
+              type="text"
+              placeholder="Full Name"
+              className="py-2 px-3 my-2 border border-white rounded-sm w-full"
+            />
+          )}
           <input
-            ref={name}
+            ref={email}
             type="text"
-            placeholder="Full Name"
+            placeholder="Email Address"
             className="py-2 px-3 my-2 border border-white rounded-sm w-full"
           />
-        )}
-        <input
-          ref={email}
-          type="text"
-          placeholder="Email Address"
-          className="py-2 px-3 my-2 border border-white rounded-sm w-full"
-        />
-        <input
-          ref={password}
-          type="password"
-          placeholder="Password"
-          className="py-2 px-3 my-2 border border-white rounded-sm w-full"
-        />
-        <p className="text-red-600 py-2">{errorMessage}</p>
-        <button
-          className="py-2 my-2 bg-red-700 w-full rounded-sm cursor-pointer"
-          onClick={onHandleButtonClick}
-        >
-          {isSignInForm ? "SIgn In" : "SIgn Up"}
-        </button>
-        <p className="py-4 cursor-pointer" onClick={toggleSignInFrom}>
-          {isSignInForm
-            ? "New to Netflix? Sign Up Now"
-            : "Already an user? Sign IN Now"}
-        </p>
-      </form>
+          <input
+            ref={password}
+            type="password"
+            placeholder="Password"
+            className="py-2 px-3 my-2 border border-white rounded-sm w-full"
+          />
+          <p className="text-red-600 py-2">{errorMessage}</p>
+          <button
+            className="py-2 my-2 bg-red-700 w-full rounded-sm cursor-pointer"
+            onClick={onHandleButtonClick}
+          >
+            {isSignInForm ? "SIgn In" : "SIgn Up"}
+          </button>
+          <p className="py-4 cursor-pointer" onClick={toggleSignInFrom}>
+            {isSignInForm
+              ? "New to Netflix? Sign Up Now"
+              : "Already an user? Sign IN Now"}
+          </p>
+        </form>
+      </div>
     </div>
   );
 };

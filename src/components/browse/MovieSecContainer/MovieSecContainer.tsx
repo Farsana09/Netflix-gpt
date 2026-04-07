@@ -24,7 +24,7 @@ const MovieSecContainer = () => {
   return (
     movies && (
       <div className=" bg-black">
-        <div className="-mt-50 relative z-20 pl-8">
+        <div className="mt-0 sm:-mt-50 relative z-20 pl-2 sm:pl-8">
           <MovieList
             title="Now Playing"
             movies={movies?.nowPlayingMovies ?? []}
